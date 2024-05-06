@@ -1,0 +1,38 @@
+[
+  
+    {
+      "firstName": "Mohamed Amine",
+      "lastName": "Ben Hamissa",
+      "phoneNumber" : "53853190",
+      "nationality" : "Tunisian",
+      "country" : "Tunisia",
+      "region" : "Sahel",
+      "dateOfBirth": "08/10/1997",
+      "adress" : "kalaa Sghira",
+      "gender": "Male",
+      "email" : "test1@gmail.com",
+      "postalCode": "4021",
+      "city": "Sousse",
+      "password" : "password1",
+      "confirmPassword" : "password1"
+    },
+    {
+      "firstName": "salim",
+      "lastName": "Sboui",
+      "phoneNumber" : "123456789",
+      "nationality" : "Tunisian",
+      "country" : "Tunisia",
+      "region" : "Sahel",
+      "dateOfBirth": "03/04/1998",
+      "adress" : "zriba",
+      "gender": "Male",
+      "email" : "test2@gmail.com",
+      "postalCode": "4020",
+      "city": "Sousse",
+      "password" : "password2",
+      "confirmPassword" : "password2"
+    }
+    
+
+  ]
+  
