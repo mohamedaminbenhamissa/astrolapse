@@ -6,14 +6,12 @@ import { useState } from "react";
 import type { FC } from "react";
 
 
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
+
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import Divider from "@mui/material/Divider";
-import IconButton from "@mui/material/IconButton";
-import SvgIcon from "@mui/material/SvgIcon";
+
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -26,79 +24,64 @@ import NewTimeTracker from "@/components/newTimeTracekr";
 interface Order {
   id: string;
   projectName: string;
-  phaseName:string;
-  date:string;
-  nbhours:number;
+  phaseName: string;
+  date: string;
+  nbhours: number;
   description: string;
-  nature:string
-  
+  nature: string;
 }
-
-
 
 const orders: Order[] = [
   {
-    id: "5eff2548979e396cb4b000ba",
-    projectName: "pending",
-    phaseName: "Carson Darrin",
-    date:"12/03/2022",
-    nbhours:4,
-    description:"lorem ipsum",
-    nature:"paid"
-    
+    id: "92-565-9154",
+    projectName: "Edgeify",
+    phaseName: "Quitzon and Sons",
+    date: "2/14/2024",
+    nbhours: 1,
+    description:
+      "in faucibus orci luctus et ultrices posuere cubilia curae nulla",
+    nature: "true",
   },
   {
-    id: "5eff2548979e396cb4b000ba",
-    projectName: "pending",
-    phaseName: "Carson Darrin",
-    date:"12/03/2022",
-    nbhours:4,
-    description:"lorem ipsum",
-    nature:"paid"
-    
+    id: "74-254-0133",
+    projectName: "Yodel",
+    phaseName: "Kutch-Kuhic",
+    date: "7/6/2023",
+    nbhours: 2,
+    description:
+      "id justo sit amet sapien dignissim vestibulum vestibulum ante ipsum primis",
+    nature: "false",
   },
   {
-    id: "5eff2548979e396cb4b000ba",
-    projectName: "pending",
-    phaseName: "Carson Darrin",
-    date:"12/03/2022",
-    nbhours:4,
-    description:"lorem ipsum",
-    nature:"paid"
-    
+    id: "52-182-2635",
+    projectName: "Voonyx",
+    phaseName: "Skiles LLC",
+    date: "1/3/2024",
+    nbhours: 3,
+    description: "elit ac nulla sed vel enim sit amet nunc viverra dapibus",
+    nature: "false",
   },
   {
-    id: "5eff2548979e396cb4b000ba",
-    projectName: "pending",
-    phaseName: "Carson Darrin",
-    date:"12/03/2022",
-    nbhours:4,
-    description:"lorem ipsum",
-    nature:"paid"
-    
+    id: "32-663-7019",
+    projectName: "Meetz",
+    phaseName: "Green, Auer and Lehner",
+    date: "7/23/2023",
+    nbhours: 4,
+    description:
+      "orci eget orci vehicula condimentum curabitur in libero ut massa volutpat convallis morbi odio odio",
+    nature: "false",
   },
   {
-    id: "5eff2548979e396cb4b000ba",
-    projectName: "pending",
-    phaseName: "Carson Darrin",
-    date:"12/03/2022",
-    nbhours:4,
-    description:"lorem ipsum",
-    nature:"paid"
-    
-  },
-  {
-    id: "5eff2548979e396cb4b000ba",
-    projectName: "pending",
-    phaseName: "Carson Darrin",
-    date:"12/03/2022",
-    nbhours:4,
-    description:"lorem ipsum",
-    nature:"paid"
-    
+    id: "99-140-2837",
+    projectName: "Flashdog",
+    phaseName: "Hodkiewicz-Marvin",
+    date: "7/30/2023",
+    nbhours: 5,
+    description:
+      "duis bibendum morbi non quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis ac",
+    nature: "false",
   },
 ];
-
 const TimeTracekerPage: FC = () => {
   const [shownewTag, setShownewTag] = useState(false);
   const handleClose = () => {
@@ -117,7 +100,7 @@ const TimeTracekerPage: FC = () => {
             onClick={() => setShownewTag(true)}
           >
             <span className="text-lg text-black hover:text-[#A58A76] ">
-            New Follow-up
+              New Follow-up
             </span>
           </button>
           <NewTimeTracker onClose={handleClose} visible={shownewTag} />
@@ -145,27 +128,18 @@ const TimeTracekerPage: FC = () => {
         <div>
           <Box
             sx={{
-              backgroundColor: (theme) =>
-                theme.palette.mode === "dark" ? "neutral.800" : "neutral.100",
               p: 3,
             }}
           >
             <Card>
-              <CardHeader
-                action={
-                  <IconButton>
-                    <SvgIcon></SvgIcon>
-                  </IconButton>
-                }
-                title="Done list"
-              />
+              <CardHeader title="Done list" />
               <Divider />
               <Scrollbar>
-                <Table sx={{ minWidth: 700 }}>
+                <Table sx={{ minWidth: 500 }}>
                   <TableHead>
                     <TableRow>
                       <TableCell> Project Name</TableCell>
-                      <TableCell> Phase  Name</TableCell>
+                      <TableCell> Phase Name</TableCell>
                       <TableCell> Date</TableCell>
                       <TableCell> Number of Hours</TableCell>
                       <TableCell> Description</TableCell>
@@ -182,32 +156,12 @@ const TimeTracekerPage: FC = () => {
                           <TableCell>{order.nbhours}</TableCell>
                           <TableCell>{order.description}</TableCell>
                           <TableCell>{order.nature}</TableCell>
-                          
                         </TableRow>
                       );
                     })}
                   </TableBody>
                 </Table>
               </Scrollbar>
-              <Box
-                sx={{
-                  display: "flex",
-                  justifyContent: "flex-end",
-                  p: 2,
-                }}
-              >
-                <Button
-                  color="inherit"
-                  endIcon={
-                    <SvgIcon>
-                      <ArrowForwardIosIcon />
-                    </SvgIcon>
-                  }
-                  size="small"
-                >
-                  See All
-                </Button>
-              </Box>
             </Card>
           </Box>
         </div>

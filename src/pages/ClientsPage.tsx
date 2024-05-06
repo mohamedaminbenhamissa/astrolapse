@@ -6,10 +6,7 @@ import { useState } from "react";
 
 import type { FC } from "react";
 
-
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import Divider from "@mui/material/Divider";
@@ -29,8 +26,6 @@ interface Order {
   adress: string;
   currency: string;
 }
-
-
 
 const orders: Order[] = [
   {
@@ -155,25 +150,6 @@ const ClientsPage: FC = () => {
                   </TableBody>
                 </Table>
               </Scrollbar>
-              <Box
-                sx={{
-                  display: "flex",
-                  justifyContent: "flex-end",
-                  p: 2,
-                }}
-              >
-                <Button
-                  color="inherit"
-                  endIcon={
-                    <SvgIcon>
-                      <ArrowForwardIosIcon />
-                    </SvgIcon>
-                  }
-                  size="small"
-                >
-                  See All
-                </Button>
-              </Box>
             </Card>
           </Box>
         </div>

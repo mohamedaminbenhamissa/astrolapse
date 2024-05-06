@@ -15,11 +15,11 @@ import { usePopover } from '@/hooks/use-popover';
 
 interface MultiSelectProps {
   label: string;
-  // Same as type as the value received above
-  onChange?: (value: any[]) => void;
+
+  onChange?: (value: unknown[]) => void;
   options: { label: string; value: unknown }[];
-  // This should accept string[], number[] or boolean[]
-  value: any[];
+
+  value: unknown[];
 }
 
 export const MultiSelect: FC<MultiSelectProps> = (props) => {

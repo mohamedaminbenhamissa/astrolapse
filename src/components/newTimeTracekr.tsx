@@ -82,11 +82,11 @@ const NewTimeTracker: React.FC<newProjectProps> = ({ visible, onClose }) => {
     <div className="fixed inset-1 bg-opacity-25 backdrop-blur-md flex items-center justify-center">
       <div className="bg-white p-1 rounded w-90 border border-[#A58A76]">
         <div className="flex justify-between ">
-          <Box sx={{ p: 3 }}>
+          <Box sx={{ p: 1 }}>
             <h1 className="text-[#A58A76] text-xl mb-4"> New Follow-up</h1>
             <form onSubmit={(event) => event.preventDefault()}>
-              <Stack spacing={3}>
-                <Stack spacing={3} direction={"row"}>
+              <Stack spacing={2}>
+                <Stack spacing={2} direction={"row"}>
                   <FormControl fullWidth>
                     <InputLabel>Project Name</InputLabel>
                     <Select
@@ -138,7 +138,7 @@ const NewTimeTracker: React.FC<newProjectProps> = ({ visible, onClose }) => {
                   <Typography sx={{ mb: 1 }} variant="subtitle2">
                     Description
                   </Typography>
-                  <OutlinedInput fullWidth name="message" required multiline rows={6} />
+                  <OutlinedInput fullWidth name="message" required multiline rows={3} />
                 </Grid>
                 <Select
                   labelId="icon-select-label"

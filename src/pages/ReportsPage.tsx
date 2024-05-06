@@ -1,8 +1,20 @@
 import Navbar from "@/components/Navbar";
 import FilterReports from "@/components/filterReports";
 import { Scrollbar } from "@/components/scrollbar";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import { Box, Button, Card, CardHeader, Divider, IconButton, SvgIcon, Table, TableBody, TableCell, TableHead, TableRow, TableSortLabel, Tooltip } from "@mui/material";
+
+import {
+  Box,
+  Card,
+  CardHeader,
+  Divider,
+  IconButton,
+  SvgIcon,
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow,
+} from "@mui/material";
 
 interface Order {
   id: string;
@@ -10,22 +22,58 @@ interface Order {
   lastname: string;
   team: string;
   email: string;
-  phonenumber: number;
+  phonenumber: string;
   role: string;
 }
 const orders: Order[] = [
   {
-    id: "5eff2548979e396cb4b000ba",
-    firstname: "Ekaterina Tankova",
-    lastname: "Ben Hamissa",
-    team: "Alpha",
-    email: "test@gmail.com",
-    phonenumber: 123456789,
-    role: "Manager",
-  },];
+    id: "1",
+    firstname: "Lyon",
+    lastname: "Ure",
+    team: "Dodge",
+    email: "lure0@theguardian.com",
+    phonenumber: "611-493-4581",
+    role: "Journey",
+  },
+  {
+    id: "2a",
+    firstname: "Rena",
+    lastname: "Cornwell",
+    team: "Chevrolet",
+    email: "rcornwell1@drupal.org",
+    phonenumber: "237-828-0528",
+    role: "Avalanche 1500",
+  },
+  {
+    id: "3",
+    firstname: "Mersey",
+    lastname: "Dalrymple",
+    team: "GMC",
+    email: "mdalrymple2@paypal.com",
+    phonenumber: "677-116-9968",
+    role: "Savana 1500",
+  },
+  {
+    id: "4",
+    firstname: "Ruth",
+    lastname: "Gouldstone",
+    team: "Mercury",
+    email: "rgouldstone3@cyberchimps.com",
+    phonenumber: "904-563-7936",
+    role: "Sable",
+  },
+  {
+    id: "5",
+    firstname: "Margo",
+    lastname: "Curteis",
+    team: "Kia",
+    email: "mcurteis4@ycombinator.com",
+    phonenumber: "668-744-4663",
+    role: "Sephia",
+  },
+];
 
 const ReportsPage = () => {
-
   return (
     <div className="min-w-full">
       <Navbar />
@@ -53,13 +101,7 @@ const ReportsPage = () => {
                 <Table sx={{ minWidth: 700 }}>
                   <TableHead>
                     <TableRow>
-                      <TableCell sortDirection="desc">
-                        <Tooltip enterDelay={300} title="Sort">
-                          <TableSortLabel active direction="desc">
-                            First Name
-                          </TableSortLabel>
-                        </Tooltip>
-                      </TableCell>
+                      <TableCell sortDirection="desc">First Name</TableCell>
                       <TableCell>Last Name</TableCell>
                       <TableCell>Team</TableCell>
                       <TableCell>Email</TableCell>
@@ -83,25 +125,6 @@ const ReportsPage = () => {
                   </TableBody>
                 </Table>
               </Scrollbar>
-              <Box
-                sx={{
-                  display: "flex",
-                  justifyContent: "flex-end",
-                  p: 2,
-                }}
-              >
-                <Button
-                  color="inherit"
-                  endIcon={
-                    <SvgIcon>
-                      <ArrowForwardIosIcon />
-                    </SvgIcon>
-                  }
-                  size="small"
-                >
-                  See All
-                </Button>
-              </Box>
             </Card>
           </Box>
         </div>

@@ -57,7 +57,6 @@ const NewProject: React.FC<newProjectProps> = ({ visible, onClose }) => {
                     label="Client Name"
                     name="clientName"
                     value={clientName}
-                   
                     onChange={(e) => setClientName(e.target.value)}
                   />
 
@@ -65,13 +64,13 @@ const NewProject: React.FC<newProjectProps> = ({ visible, onClose }) => {
                     label="Satrt Day"
                     value={startDate}
                     ampm={false}
-                    views={['year', 'month', 'day']} 
+                    views={["year", "month", "day"]}
                     onChange={(newDate) => setStartDate(newDate)}
                   />
 
                   <DateTimePicker
                     label="End Day"
-                    views={['year', 'month', 'day']}
+                    views={["year", "month", "day"]}
                     value={endDate}
                     ampm={false}
                     onChange={(newValue) => setEndDate(newValue)}

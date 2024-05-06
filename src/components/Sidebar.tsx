@@ -42,12 +42,12 @@ const Sidebar: React.FC<AuthProviderProps> = ({ children }) => {
         <img
           src={logo}
           alt="Logo"
-          className="fixed top-10 left-16 transition-transform -translate-x-full sm:translate-x-0 w-42 h-20"
+          className="fixed top-6 left-16 transition-transform -translate-x-full sm:translate-x-0 w-42 h-20"
         />
 
         <aside
           id="default-sidebar"
-          className="fixed top-40  z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0 "
+          className="fixed top-32 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0 overflow-y-auto"
           aria-label="Sidebar"
       
         >
@@ -56,7 +56,7 @@ const Sidebar: React.FC<AuthProviderProps> = ({ children }) => {
               <li>
                 <Link
                   to="/main/timetracker"
-                  className={`flex items-center p-2 rounded-lg hover:bg-[#F8F7FF]  hover:text-[#A58A76] ${
+                  className={`flex items-center p-1 rounded-lg hover:bg-[#F8F7FF]  hover:text-[#A58A76] ${
                     location.pathname === "/main/timetracker"
                       ? "text-[#A58A76] bg-[#F8F7FF] border-r-8 border-[#A58A76]"
                       : "text-gray-900"

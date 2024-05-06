@@ -33,7 +33,7 @@ const stockOptions: Option[] = [
 const FilterReports = () => {
   return (
     <div className="bg-white p-2 rounded w-100 border border-[#A58A76] flex flex-row gap-3 w-full">
-      <MultiSelect label="User" options={stockOptions} value={top100Films} />
+      <MultiSelect label="User" options={stockOptions} value={top100Films}  />
       <MultiSelect label="Team" options={stockOptions} value={top100Films} />
       <DatePicker />
       <MultiSelect label="Work" options={stockOptions} value={top100Films} />

@@ -6,7 +6,7 @@ import Sidebar from "./components/Sidebar";
 
 
 interface AuthContextType {
- currentUser: any; 
+ currentUser: unknown; 
  isAuthenticated: () => boolean;
 }
 

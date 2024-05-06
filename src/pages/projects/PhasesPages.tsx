@@ -5,10 +5,8 @@ import FilterListIcon from "@mui/icons-material/FilterList";
 // import { useState } from "react";
 
 import type { FC } from "react";
-
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
+
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import Divider from "@mui/material/Divider";
@@ -77,7 +75,7 @@ const PhasesPages: FC = () => {
               Add Phase
             </span>
           </button>
-         {/* // <NewPhases onClose={handleClose} visible={shownewProject} /> */}
+          {/* // <NewPhases onClose={handleClose} visible={shownewProject} /> */}
         </div>
 
         <div className="flex items-center  justify-between ml-10 mr-5 mt-10">
@@ -135,25 +133,6 @@ const PhasesPages: FC = () => {
                   </TableBody>
                 </Table>
               </Scrollbar>
-              <Box
-                sx={{
-                  display: "flex",
-                  justifyContent: "flex-end",
-                  p: 2,
-                }}
-              >
-                <Button
-                  color="inherit"
-                  endIcon={
-                    <SvgIcon>
-                      <ArrowForwardIosIcon />
-                    </SvgIcon>
-                  }
-                  size="small"
-                >
-                  See All
-                </Button>
-              </Box>
             </Card>
           </Box>
         </div>

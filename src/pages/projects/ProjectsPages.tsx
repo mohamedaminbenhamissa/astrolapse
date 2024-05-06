@@ -7,9 +7,9 @@ import { useState } from "react";
 import type { FC } from "react";
 import { format, subMinutes, subSeconds } from "date-fns";
 
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
+
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import Divider from "@mui/material/Divider";
@@ -53,7 +53,7 @@ const orders: Order[] = [
     projectName: "Carson Darrin",
     clientName: "pending",
     status: "complete",
-    phases: "Design, Development"
+    phases: "Design, Development",
   },
   {
     id: "5eff2548979e396cb4b000ba",
@@ -62,7 +62,7 @@ const orders: Order[] = [
     projectName: "Carson Darrin",
     clientName: "pending",
     status: "rejected",
-    phases: "Design, Development"
+    phases: "Design, Development",
   },
   {
     id: "5eff2548979e396cb4b000ba",
@@ -71,7 +71,7 @@ const orders: Order[] = [
     projectName: "Carson Darrin",
     clientName: "pending",
     status: "complete",
-    phases: "Design, Development"
+    phases: "Design, Development",
   },
   {
     id: "5eff2548979e396cb4b000ba",
@@ -80,7 +80,7 @@ const orders: Order[] = [
     projectName: "Carson Darrin",
     clientName: "pending",
     status: "rejected",
-    phases: "Design, Development"
+    phases: "Design, Development",
   },
   {
     id: "5eff2548979e396cb4b000ba",
@@ -89,7 +89,7 @@ const orders: Order[] = [
     projectName: "Carson Darrin",
     clientName: "pending",
     status: "inprogress",
-    phases: "Design, Development"
+    phases: "Design, Development",
   },
   {
     id: "5eff2548979e396cb4b000ba",
@@ -98,7 +98,7 @@ const orders: Order[] = [
     projectName: "Carson Darrin",
     clientName: "pending",
     status: "inprogress",
-    phases: "Design, Development"
+    phases: "Design, Development",
   },
 ];
 
@@ -135,7 +135,6 @@ const ProjectsPages: FC = () => {
               className="bg-white h-10 outline-none px-4 w-[99%] rounded-full placeholder:text-[14px] font-normal"
               placeholder="Search"
             />
-            
           </div>
           <button
             type="button"
@@ -165,12 +164,17 @@ const ProjectsPages: FC = () => {
                 title="Projects List"
               />
               <Divider />
-              {selectedProject && <ProjectDetails project={selectedProject} onClose={() => setSelectedProject(null)} />}
+              {selectedProject && (
+                <ProjectDetails
+                  project={selectedProject}
+                  onClose={() => setSelectedProject(null)}
+                />
+              )}
               <Scrollbar>
-                <Table sx={{ minWidth: 700 }}>
+                <Table sx={{ minWidth: 700, cursor: "pointer" }}>
                   <TableHead>
-                    <TableRow >
-                      <TableCell >NAME</TableCell>
+                    <TableRow>
+                      <TableCell>NAME</TableCell>
                       <TableCell>CLIENT</TableCell>
                       <TableCell>Start Date</TableCell>
                       <TableCell>End Date</TableCell>
@@ -178,20 +182,18 @@ const ProjectsPages: FC = () => {
                       <TableCell>Phases</TableCell>
                     </TableRow>
                   </TableHead>
-                  <TableBody >
+                  <TableBody>
                     {orders.map((order) => {
                       const statusColor = labelColors[order.status];
-                      const startDay = format(
-                        order.startday,
-                        "dd MMM, yyyy"
-                      );
-                      const endDate = format(
-                        order.enddate,
-                        "dd MMM, yyyy"
-                      );
+                      const startDay = format(order.startday, "dd MMM, yyyy");
+                      const endDate = format(order.enddate, "dd MMM, yyyy");
 
                       return (
-                        <TableRow hover key={order.id} onClick={() => setSelectedProject(order)}>
+                        <TableRow
+                          hover
+                          key={order.id}
+                          onClick={() => setSelectedProject(order)}
+                        >
                           <TableCell>{order.projectName}</TableCell>
                           <TableCell>{order.clientName}</TableCell>
                           <TableCell>{startDay}</TableCell>
@@ -208,25 +210,6 @@ const ProjectsPages: FC = () => {
                   </TableBody>
                 </Table>
               </Scrollbar>
-              <Box
-                sx={{
-                  display: "flex",
-                  justifyContent: "flex-end",
-                  p: 2,
-                }}
-              >
-                <Button
-                  color="inherit"
-                  endIcon={
-                    <SvgIcon>
-                      <ArrowForwardIosIcon />
-                    </SvgIcon>
-                  }
-                  size="small"
-                >
-                  See All
-                </Button>
-              </Box>
             </Card>
           </Box>
         </div>
