@@ -1,77 +1,104 @@
 import Navbar from "@/components/Navbar";
 import FilterReports from "@/components/filterReports";
 import { Scrollbar } from "@/components/scrollbar";
-
+import FileDownloadIcon from "@mui/icons-material/FileDownload";
 import {
   Box,
+  Button,
   Card,
   CardHeader,
   Divider,
-  IconButton,
-  SvgIcon,
   Table,
   TableBody,
   TableCell,
   TableHead,
   TableRow,
 } from "@mui/material";
+import * as XLSX from "xlsx";
 
 interface Order {
   id: string;
   firstname: string;
   lastname: string;
-  team: string;
   email: string;
-  phonenumber: string;
-  role: string;
+  date: string;
+  nbhours: number;
 }
 const orders: Order[] = [
   {
-    id: "1",
-    firstname: "Lyon",
-    lastname: "Ure",
-    team: "Dodge",
-    email: "lure0@theguardian.com",
-    phonenumber: "611-493-4581",
-    role: "Journey",
+    id: "1d",
+    firstname: "Golda",
+    lastname: "Treuge",
+    email: "gtreuge0@indiegogo.com",
+    date: "5/14/2023",
+    nbhours: 1,
   },
   {
-    id: "2a",
-    firstname: "Rena",
-    lastname: "Cornwell",
-    team: "Chevrolet",
-    email: "rcornwell1@drupal.org",
-    phonenumber: "237-828-0528",
-    role: "Avalanche 1500",
+    id: "2d",
+    firstname: "Alene",
+    lastname: "Gradly",
+    email: "agradly1@delicious.com",
+    date: "12/22/2023",
+    nbhours: 2,
   },
   {
-    id: "3",
-    firstname: "Mersey",
-    lastname: "Dalrymple",
-    team: "GMC",
-    email: "mdalrymple2@paypal.com",
-    phonenumber: "677-116-9968",
-    role: "Savana 1500",
+    id: "3z",
+    firstname: "Madelina",
+    lastname: "Sonner",
+    email: "msonner2@biglobe.ne.jp",
+    date: "5/14/2023",
+    nbhours: 3,
   },
   {
-    id: "4",
-    firstname: "Ruth",
-    lastname: "Gouldstone",
-    team: "Mercury",
-    email: "rgouldstone3@cyberchimps.com",
-    phonenumber: "904-563-7936",
-    role: "Sable",
+    id: "4f",
+    firstname: "Fabiano",
+    lastname: "Bessey",
+    email: "fbessey3@whitehouse.gov",
+    date: "3/8/2024",
+    nbhours: 4,
   },
   {
-    id: "5",
-    firstname: "Margo",
-    lastname: "Curteis",
-    team: "Kia",
-    email: "mcurteis4@ycombinator.com",
-    phonenumber: "668-744-4663",
-    role: "Sephia",
+    id: "5f",
+    firstname: "Shanda",
+    lastname: "Baccas",
+    email: "sbaccas4@mozilla.org",
+    date: "10/26/2023",
+    nbhours: 5,
+  },
+  {
+    id: "6",
+    firstname: "Immanuel",
+    lastname: "Matas",
+    email: "imatas5@boston.com",
+    date: "6/15/2023",
+    nbhours: 6,
+  },
+  {
+    id: "7",
+    firstname: "Nikkie",
+    lastname: "Buddleigh",
+    email: "nbuddleigh6@blogger.com",
+    date: "10/31/2023",
+    nbhours: 7,
   },
 ];
+const exportToExcel = () => {
+  const worksheetData = [
+    ["Name", "Age", "City"], // Header row
+    ...orders.map((row) => [
+      row.id,
+      row.firstname,
+      row.lastname,
+      row.email,
+      row.date,
+      row.nbhours,
+    ]),
+  ];
+  const worksheet = XLSX.utils.aoa_to_sheet(worksheetData);
+  const workbook = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
+  XLSX.writeFile(workbook, "tableData.xlsx");
+};
 
 const ReportsPage = () => {
   return (
@@ -79,6 +106,13 @@ const ReportsPage = () => {
       <Navbar />
       <div className="bg-[#F9F9F9] h-full p-2 rounded-lg mt-[2%] mr-[1%]">
         <FilterReports />
+        <div className="flex justify-end mt-4 text-[#A58A76] ">
+          <Button onClick={exportToExcel}>
+            Export
+            <FileDownloadIcon />
+          </Button>
+        </div>
+
         <div>
           <Box
             sx={{
@@ -88,25 +122,17 @@ const ReportsPage = () => {
             }}
           >
             <Card>
-              <CardHeader
-                action={
-                  <IconButton>
-                    <SvgIcon></SvgIcon>
-                  </IconButton>
-                }
-                title="Users Lsit"
-              />
+              <CardHeader title="Users Lsit" />
               <Divider />
               <Scrollbar>
-                <Table sx={{ minWidth: 700 }}>
+                <Table>
                   <TableHead>
                     <TableRow>
                       <TableCell sortDirection="desc">First Name</TableCell>
                       <TableCell>Last Name</TableCell>
-                      <TableCell>Team</TableCell>
                       <TableCell>Email</TableCell>
-                      <TableCell>Phone Number</TableCell>
-                      <TableCell>Role</TableCell>
+                      <TableCell>Date</TableCell>
+                      <TableCell>Nb Hours</TableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>
@@ -115,15 +141,18 @@ const ReportsPage = () => {
                         <TableRow hover key={order.id}>
                           <TableCell>{order.firstname}</TableCell>
                           <TableCell>{order.lastname}</TableCell>
-                          <TableCell>{order.team}</TableCell>
                           <TableCell>{order.email}</TableCell>
-                          <TableCell>{order.phonenumber}</TableCell>
-                          <TableCell>{order.role}</TableCell>
+                          <TableCell>{order.date}</TableCell>
+                          <TableCell>{order.nbhours}</TableCell>
                         </TableRow>
                       );
                     })}
                   </TableBody>
                 </Table>
+                <div className="flex justify-between ">
+                  <Card>ok</Card>
+                  <Card>ok</Card>
+                </div>
               </Scrollbar>
             </Card>
           </Box>

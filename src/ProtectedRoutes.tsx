@@ -24,7 +24,7 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ element, ...props }) =>
  };
 
  if (currentUser && isAuthenticated()) {
-    if (startsWith(location.pathname, "/auth")) {
+    if (startsWith(location.pathname, "/auth/signin")) {
       return <Navigate to="/main" replace />;
     }
 
@@ -35,7 +35,7 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ element, ...props }) =>
     );
  } else {
     if (startsWith(location.pathname, "/main")) {
-      return <Navigate to="/auth" replace />;
+      return <Navigate to="/auth/signin" replace />;
     }
 
     return (

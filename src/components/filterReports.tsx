@@ -1,6 +1,7 @@
 import { Button } from "@mui/material";
 import DatePicker from "./datePicker";
 import { MultiSelect } from "./multi-select";
+import WorkPicker from "./workPicker";
 
 const top100Films = [
   { label: "The Shawshank Redemption", year: 1994 },
@@ -36,11 +37,11 @@ const FilterReports = () => {
       <MultiSelect label="User" options={stockOptions} value={top100Films}  />
       <MultiSelect label="Team" options={stockOptions} value={top100Films} />
       <DatePicker />
-      <MultiSelect label="Work" options={stockOptions} value={top100Films} />
+      <WorkPicker/>
       <MultiSelect label="Project" options={stockOptions} value={top100Films} />
 
       <div className=" w-full flex justify-end">
-        <Button>Export</Button>
+        <Button >Aply Filter</Button>
       </div>
     </div>
   );
