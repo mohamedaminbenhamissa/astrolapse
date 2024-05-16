@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import FilterListIcon from "@mui/icons-material/FilterList";
 // import { useState } from "react";
 
-import type { FC } from "react";
+import { useState, type FC } from "react";
 import Box from "@mui/material/Box";
 
 import Card from "@mui/material/Card";
@@ -19,7 +19,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 
 import { Scrollbar } from "../../components/scrollbar";
-// import NewPhases from "@/components/NewPhases";
+import NewPhases from "@/components/NewPhases";
 
 interface Order {
   id: string;
@@ -54,10 +54,10 @@ const orders: Order[] = [
 ];
 
 const PhasesPages: FC = () => {
-  // const [shownewProject, setShownewProject] = useState(false);
-  // const handleClose = () => {
-  //   setShownewProject(false);
-  // };
+  const [shownewProject, setShownewProject] = useState(false);
+  const handleClose = () => {
+    setShownewProject(false);
+  };
 
   return (
     <div className="min-w-full">
@@ -75,7 +75,7 @@ const PhasesPages: FC = () => {
               Add Phase
             </span>
           </button>
-          {/* // <NewPhases onClose={handleClose} visible={shownewProject} /> */}
+          <NewPhases onClose={handleClose} visible={shownewProject} />
         </div>
 
         <div className="flex items-center  justify-between ml-10 mr-5 mt-10">
